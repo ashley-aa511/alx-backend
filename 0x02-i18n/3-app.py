@@ -19,6 +19,7 @@ app.config.from_object(Config)
 #Initialize Babel
 babel = Babel(app)
 
+
 #Locale Selector Function
 @babel.localeselector
 def get_locale():
@@ -28,6 +29,7 @@ def get_locale():
 @app.route('/')
 def home():
     return render_template('2-index.html', home_title=_('home_title'), home_header=_('home_header'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
