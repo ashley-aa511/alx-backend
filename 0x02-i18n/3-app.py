@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#2-app.py
+#3-app.py
 
 #Imports modules important for the application to work
 from flask import Flask, render_template, request
@@ -19,12 +19,6 @@ app.config.from_object(Config)
 #Initialize Babel
 babel = Babel(app)
 
-
-#Locale Selector Function
-@babel.localeselector
-def get_locale():
-    #This returns which language it decides to use
-    return request.accept_languages.bestmatch(app.config['LANGUAGES'])
 
 @app.route('/')
 def home():
