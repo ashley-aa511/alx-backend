@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ g.user.locale if g.user else 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <title>Mock Login System</title>
+</head>
+<body>
+    <h1>Welcome to the Mock Login System</h1>
+    <p>
+        {% if g.user %}
+            {% if g.user.locale == 'fr' %}
+                Vous êtes connecté en tant que {{ g.user.name }}.
+            {% else %}
+                You are logged in as {{ g.user.name }}.
+            {% endif %}
+        {% else %}
+            {% if get_locale() == 'fr' %}
+                Vous n'êtes pas connecté.
+            {% else %}
+                You are not logged in.
+            {% endif %}
+        {% endif %}
+    </p>
+</body>
+</html>
