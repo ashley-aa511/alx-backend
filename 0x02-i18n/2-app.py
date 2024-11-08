@@ -17,13 +17,13 @@ class Config:
 app.config.from_object(Config)
 
 #Initialize Babel
-babel = Babel(app)
+babel = Babel(app, locale_selector=get_locale)
 
 #Locale Selector Function
 @babel.localeselector
 def get_locale():
     #This returns which language it decides to use
-    return request.accept_languages.bestmatch(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 @app.route('/')
 def home():
